@@ -18,7 +18,7 @@ def prediction_output_to_trajectories(prediction_output_dict,
         histories_dict[t] = dict()
         output_dict[t] = dict()
         futures_dict[t] = dict()
-        prediction_nodes = prediction_output_dict[t].keys()
+        prediction_nodes = prediction_output_dict[t].keys() # Guess: {time: {node: prediction}}
         for node in prediction_nodes:
             predictions_output = prediction_output_dict[t][node]
             position_state = {'position': ['x', 'y']}

@@ -20,14 +20,18 @@ torch.manual_seed(seed)
 if torch.cuda.is_available():
     torch.cuda.manual_seed_all(seed)
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--model", help="model full path", type=str)
-parser.add_argument("--checkpoint", help="model checkpoint to evaluate", type=int)
-parser.add_argument("--data", help="full path to data file", type=str)
-parser.add_argument("--output_path", help="path to output csv file", type=str)
-parser.add_argument("--output_tag", help="name tag for output file", type=str)
-parser.add_argument("--node_type", help="node type to evaluate", type=str)
-args = parser.parse_args()
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model", help="model full path", type=str)
+    parser.add_argument("--checkpoint", help="model checkpoint to evaluate", type=int)
+    parser.add_argument("--data", help="full path to data file", type=str)
+    parser.add_argument("--output_path", help="path to output csv file", type=str)
+    parser.add_argument("--output_tag", help="name tag for output file", type=str)
+    parser.add_argument("--node_type", help="node type to evaluate", type=str)
+    return parser.parse_args()
+
+if __name__ == "__main__":
+    args = parse_args()
 
 
 def load_model(model_dir, env, ts=100):

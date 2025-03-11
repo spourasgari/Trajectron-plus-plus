@@ -4,3 +4,4 @@ python evaluate.py --model ./models/zara1_vel --checkpoint 100 --data ../process
 python evaluate.py --model ./models/zara2_vel --checkpoint 100 --data ../processed/zara2_test.pkl --output_path ./results/ --output_tag zara2_vel_12 --node_type PEDESTRIAN
 python evaluate.py --model ./models/univ_vel --checkpoint 100 --data ../processed/univ_test.pkl --output_path ./results/ --output_tag univ_vel_12 --node_type PEDESTRIAN
 
+python evaluate.py --model /home/sina/env_prediction_project/Trajectron-plus-plus/experiments/pedestrians/models/models_06_Mar_2025_15_57_30_eth_vel_ar3 --checkpoint 32 --data /home/sina/env_prediction_project/Trajectron-plus-plus/experiments/processed/eth_test.pkl --output_path results --output_tag eth_32_epoch --node_type PEDESTRIAN

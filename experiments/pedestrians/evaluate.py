@@ -69,8 +69,6 @@ if __name__ == "__main__":
     ph = hyperparams['prediction_horizon']
     max_hl = hyperparams['maximum_history_length']
 
-    output_predictions = {} # My addition
-
     with torch.no_grad():
         ############### MOST LIKELY ###############
         eval_ade_batch_errors = np.array([])
@@ -194,10 +192,7 @@ if __name__ == "__main__":
         ############### FULL ###############
         eval_ade_batch_errors = np.array([])
         eval_fde_batch_errors = np.array([])
-        eval_kde_nll = np.array([])
-
-        output_predictions = {} # My addition
-        
+        eval_kde_nll = np.array([])     
         
         print("-- Evaluating Full")
         for i, scene in enumerate(scenes):
@@ -216,8 +211,6 @@ if __name__ == "__main__":
 
                 if not predictions:
                     continue
-
-                output_predictions[f"Scene_{i}_Timestep_{t}"] = predictions  # Store predictions per scene and timestep (My addition)
 
                 batch_error_dict = evaluation.compute_batch_statistics(predictions,
                                                                        scene.dt,
@@ -238,11 +231,3 @@ if __name__ == "__main__":
         pd.DataFrame({'value': eval_kde_nll, 'metric': 'kde', 'type': 'full'}
                      ).to_csv(os.path.join(args.output_path, args.output_tag + '_kde_full.csv'))
 
-
-        ## My addition
-        # Save trajectory distributions to a Pickle file
-        output_file = os.path.join(args.output_path, args.output_tag + '_trajectory_distribution.pkl')
-        with open(output_file, 'wb') as f:
-            pickle.dump(output_predictions, f)
-
-        print(f"Saved trajectory distribution to {output_file}")

@@ -202,7 +202,7 @@ if __name__ == "__main__":
                 predictions = eval_stg.predict(scene,
                                                timesteps,
                                                ph,
-                                               num_samples=200,
+                                               num_samples=2000,
                                                min_history_timesteps=7,
                                                min_future_timesteps=12,
                                                z_mode=False,

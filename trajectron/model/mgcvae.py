@@ -1133,6 +1133,10 @@ class MultimodalGenerativeCVAE(object):
                                                               most_likely_z=z_mode,
                                                               full_dist=full_dist,
                                                               all_z_sep=all_z_sep)
+        # torch.set_printoptions(threshold=10_000)
+        # print(z)
+        # print(len(z))
+        # print(torch.max(z))
 
         _, our_sampled_future = self.p_y_xz(mode, x, x_nr_t, y_r, n_s_t0, z,
                                             prediction_horizon,
@@ -1140,4 +1144,4 @@ class MultimodalGenerativeCVAE(object):
                                             num_components,
                                             gmm_mode)
 
-        return our_sampled_future
+        return our_sampled_future, z

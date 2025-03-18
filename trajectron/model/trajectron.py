@@ -170,7 +170,7 @@ class Trajectron(object):
                 map = map.to(self.device)
 
             # Run forward pass
-            predictions = model.predict(inputs=x,
+            predictions, z = model.predict(inputs=x,
                                         inputs_st=x_st_t,
                                         first_history_indices=first_history_index,
                                         neighbors=neighbors_data_st,
@@ -192,4 +192,4 @@ class Trajectron(object):
                     predictions_dict[ts] = dict()
                 predictions_dict[ts][nodes[i]] = np.transpose(predictions_np[:, [i]], (1, 0, 2, 3))
 
-        return predictions_dict
+        return predictions_dict, z

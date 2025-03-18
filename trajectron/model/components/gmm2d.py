@@ -134,8 +134,8 @@ class GMM2D(td.Distribution):
                     x_max = self.mus[:, n, t, :, 0].max()
                     y_min = self.mus[:, n, t, :, 1].min()
                     y_max = self.mus[:, n, t, :, 1].max()
-                    search_grid = torch.stack(torch.meshgrid([torch.arange(x_min, x_max, 0.01),
-                                                              torch.arange(y_min, y_max, 0.01)]), dim=2
+                    search_grid = torch.stack(torch.meshgrid([torch.arange(x_min.item(), x_max.item(), 0.01),
+                                                              torch.arange(y_min.item(), y_max.item(), 0.01)]), dim=2
                                               ).view(-1, 2).float().to(self.device)
 
                     ll_score = nt_gmm.log_prob(search_grid)

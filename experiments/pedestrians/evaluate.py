@@ -78,7 +78,7 @@ if __name__ == "__main__":
             print(f"---- Evaluating Scene {i + 1}/{len(scenes)}")
             timesteps = np.arange(scene.timesteps)
 
-            predictions = eval_stg.predict(scene,
+            predictions, z = eval_stg.predict(scene,
                                            timesteps,
                                            ph,
                                            num_samples=1,
@@ -116,7 +116,7 @@ if __name__ == "__main__":
             print(f"---- Evaluating Scene {i+1}/{len(scenes)}")
             for t in tqdm(range(0, scene.timesteps, 10)):
                 timesteps = np.arange(t, t + 10)
-                predictions = eval_stg.predict(scene,
+                predictions, z = eval_stg.predict(scene,
                                                timesteps,
                                                ph,
                                                num_samples=2000,
@@ -156,7 +156,7 @@ if __name__ == "__main__":
             print(f"---- Evaluating Scene {i + 1}/{len(scenes)}")
             for t in tqdm(range(0, scene.timesteps, 10)):
                 timesteps = np.arange(t, t + 10)
-                predictions = eval_stg.predict(scene,
+                predictions, z = eval_stg.predict(scene,
                                                timesteps,
                                                ph,
                                                num_samples=20,
@@ -199,7 +199,7 @@ if __name__ == "__main__":
             print(f"---- Evaluating Scene {i + 1}/{len(scenes)}")
             for t in tqdm(range(0, scene.timesteps, 10)):
                 timesteps = np.arange(t, t + 10)
-                predictions = eval_stg.predict(scene,
+                predictions, z = eval_stg.predict(scene,
                                                timesteps,
                                                ph,
                                                num_samples=2000,

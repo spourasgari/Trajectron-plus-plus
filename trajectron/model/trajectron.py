@@ -192,4 +192,5 @@ class Trajectron(object):
                     predictions_dict[ts] = dict()
                 predictions_dict[ts][nodes[i]] = np.transpose(predictions_np[:, [i]], (1, 0, 2, 3))
 
-        return predictions_dict, z
+        # return predictions_dict, z
+        return predictions_dict

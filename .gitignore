@@ -27,7 +27,8 @@ public-code/
 # *.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
-.pdf
+*.pdf
+*.png
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
@@ -418,3 +419,4 @@ experiments/nuScenes/maps/
 experiments/nuScenes/samples/
 experiments/nuScenes/sweeps/
 experiments/nuScenes/v1.0-mini/
+experiments/pedestrians/results

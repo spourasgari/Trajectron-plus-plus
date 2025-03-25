@@ -415,8 +415,9 @@ dmypy.json
 
 # nuScenes files
 downloads/
-experiments/nuScenes/maps/
-experiments/nuScenes/samples/
-experiments/nuScenes/sweeps/
-experiments/nuScenes/v1.0-mini/
-experiments/pedestrians/results/
+experiments/
+# experiments/nuScenes/maps/
+# experiments/nuScenes/samples/
+# experiments/nuScenes/sweeps/
+# experiments/nuScenes/v1.0-mini/
+# experiments/pedestrians/results/
